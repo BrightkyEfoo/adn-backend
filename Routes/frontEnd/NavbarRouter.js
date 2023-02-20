@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { NavBar } from './NavBar/navBar.js';
+import { NavBar } from './NavBar/NavBar.js';
 
 
 const navBarRouter = Router();
