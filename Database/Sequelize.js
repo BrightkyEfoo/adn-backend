@@ -20,7 +20,7 @@ import {commentFiller} from './Fillers/CommentFiller.js'
 import SingleEventPageModel from '../Models/frontEnd/SingleEventPage.js';
 import { singleEventPageFiller } from './Fillers/frontEnd/SingleEventFiller.js';
 
-const sequelize = new Sequelize('digital23_adn', 'root', '123456789', {
+const sequelize = new Sequelize('adn', 'root', '123456789', {
   host: 'mysql-112011-0.cloudclusters.net',
   port : 10332,
   dialect: 'mysql',
