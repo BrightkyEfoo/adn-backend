@@ -12,6 +12,6 @@ export const getHomePage = (req, res) => {
       res.json({ page : pa });
     })
     .catch(err => {
-      res.status(404).json({ msg: 'page not found' });
+      res.status(404).json({ msg: 'page not found' , err });
     });
 };
