@@ -4,7 +4,7 @@ const eventPages = [
   {
     language: 'EN',
     head: {
-      image: 'https://adn-backend.ondigitalocean.app/public/images/background.jpg',
+      image: 'https://adn-backend-mj63t.ondigitalocean.app/public/images/background.jpg',
       title: 'Our Events',
     },
     section1: {
@@ -23,7 +23,7 @@ const eventPages = [
         button: 'SUBSCRIBE',
       },
       right: {
-        image: 'https://adn-backend.ondigitalocean.app/public/images/post.jpeg',
+        image: 'https://adn-backend-mj63t.ondigitalocean.app/public/images/post.jpeg',
         title: 'Check out our latest news post.',
         main: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia harum nihil accusamus quasi voluptatem ipsa tempore? Ab laborum laudantium nulla mollitia fuga explicabo omnis quos doloribus? Veniam eaque similique ducimus.',
         button: 'MORE',

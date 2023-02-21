@@ -1,7 +1,7 @@
 import { FocalPoint } from '../Sequelize.js';
 
 const focalPoint1 = {
-  image: 'https://adn-backend.ondigitalocean.app/public/images/focalpoint1.jpg',
+  image: 'https://adn-backend-mj63t.ondigitalocean.app/public/images/focalpoint1.jpg',
   firstName: 'TANGUY',
   lastName: 'Blaise Pascal',
   country : 'Focal Point of Douala'

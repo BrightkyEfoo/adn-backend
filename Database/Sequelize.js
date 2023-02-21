@@ -24,9 +24,9 @@ import FocalPointModel from '../Models/FocalPoint.js';
 import { aboutpageFiller } from './Fillers/frontEnd/AboutPageFiller.js';
 import { focalPointFiller } from './Fillers/FocalPointFiller.js';
 
-const sequelize = new Sequelize('adn-dmservices', 'root', '', {
-  host: 'localhost',
-  // port : 25060,
+const sequelize = new Sequelize('adn', 'root', '123456789', {
+  host: 'mysql-112011-0.cloudclusters.net',
+  port : 10332,
   dialect: 'mysql',
   logging: false,
 })
