@@ -56,19 +56,21 @@ export const getSomeEvents = (req, res) => {
         begin: { [Op.between]: [begin, end] },
       },
     }).then(events => {
-      const ev = events;
-      ev.forEach(e => {
-        e.document = JSON.parse(e.document);
-      });
-      res.json({ events: ev });
+      // const ev = events;
+      // ev.forEach(e => {
+      //   e.document = JSON.parse(e.document);
+      // });
+      // res.json({ events: ev });
+      res.json({ events });
     });
   } else {
     Event.findAll().then(events => {
-      const ev = events;
-      ev.forEach(e => {
-        e.document = JSON.parse(e.document);
-      });
-      res.json({ events: ev });
+      // const ev = events;
+      // ev.forEach(e => {
+      //   e.document = JSON.parse(e.document);
+      // });
+      // res.json({ events: ev });
+      res.json({ events });
     });
   }
 };
