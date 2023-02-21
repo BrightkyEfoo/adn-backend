@@ -1,6 +1,7 @@
 import { HomePage } from "../../../Database/Sequelize.js";
 
 export const getHomePage = (req, res) => {
+  console.log('req.params.language', req?.params?.language)
   HomePage.findOne({ where: { language: req.params.language } })
     .then(page => {
       const pa = page.toJSON()
