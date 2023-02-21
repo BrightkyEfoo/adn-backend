@@ -43,7 +43,7 @@ const navBars = [
     ],
     button: {
       title: 'BLACK EXCELLENCE CENTER',
-      url: 'http://localhost:3000',
+      url: 'https://adn.dmservices.dev',
     },
   },
 ];

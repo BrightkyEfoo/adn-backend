@@ -34,7 +34,7 @@ const CommentModel = sequelize => {
       website: {
         type: DataTypes.STRING,
         // allowNull: false,
-        defaultValue: 'http://localhost:3000',
+        defaultValue: 'https://adn.dmservices.dev',
       },
     },
     {

@@ -4,7 +4,7 @@ const comments = [
     main: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, corrupti saepe tempore blanditiis quisquam voluptatem voluptates temporibus impedit porro voluptate aliquam doloremque odit odio deleniti quas eligendi quaerat sit nesciunt.',
     name: 'john DOE',
     email: 'johndoe@example.com',
-    website: 'http://localhost:3000',
+    website: 'https://adn.dmservices.dev',
   },
 ];
 
