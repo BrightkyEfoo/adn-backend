@@ -24,10 +24,10 @@ import FocalPointModel from '../Models/FocalPoint.js';
 import { aboutpageFiller } from './Fillers/frontEnd/AboutPageFiller.js';
 import { focalPointFiller } from './Fillers/FocalPointFiller.js';
 
-const sequelize = new Sequelize('adn', 'root', '12345679', {
-  host: 'mariadb-112010-0.cloudclusters.net',
-  port : 10321,
-  dialect: 'mariadb',
+const sequelize = new Sequelize('digital23_adn', 'digital23_root', 'Yl3U6)^PQ9MQ', {
+  host: '198.187.31.55',
+  // port : 10321,
+  dialect: 'mysql',
   logging: false,
 })
 
