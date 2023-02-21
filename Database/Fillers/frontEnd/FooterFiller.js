@@ -2,7 +2,7 @@ import { Footer } from '../../Sequelize.js';
 
 const footers = [
   {
-    language: 'EN',
+    language: 'en',
     bottom: {
       left: 'African developement network 2022',
       right: {

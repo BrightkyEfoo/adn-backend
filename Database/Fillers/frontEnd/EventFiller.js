@@ -2,7 +2,7 @@ import { Event } from '../../Sequelize.js';
 const date = new Date();
 const Events = [
   {
-    language: 'EN',
+    language: 'en',
     begin: new Date(2023,2,20),
     end: new Date(2023,2,21),
     name : 'CENTER OF EXCELENCE IN YOUTH ENTREPENEURSHIP IN CANADA',
@@ -55,7 +55,7 @@ const Events = [
     },
   },
   {
-    language: 'FR',
+    language: 'fr',
     begin: new Date(2022,11,23,17),
     end: new Date(2022,11,23,19,30),
     image : 'https://adn-backend-mj63t.ondigitalocean.app/public/images/event2.jpeg',
@@ -110,7 +110,7 @@ const Events = [
     },
   },
   {
-    language: 'FR',
+    language: 'fr',
     begin: new Date('2023-02-20T07:00:00.000Z'),
     end: new Date('2023-02-26T08:00:00.000Z'),
     image : 'https://adn-backend-mj63t.ondigitalocean.app/public/images/event2.jpeg',

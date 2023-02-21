@@ -2,7 +2,7 @@ import { EventPage } from "../../Sequelize.js";
 
 const eventPages = [
   {
-    language: 'EN',
+    language: 'en',
     head: {
       image: 'https://adn-backend-mj63t.ondigitalocean.app/public/images/background.jpg',
       title: 'Our Events',

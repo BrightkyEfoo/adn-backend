@@ -2,7 +2,7 @@ import { AboutPage } from "../../Sequelize.js"
 
 const aboutPage = [
     {
-        language : 'EN',
+        language : 'en',
         head : {
             title : 'About Us',
             image : 'https://adn-backend-mj63t.ondigitalocean.app/public/images/background.jpg',

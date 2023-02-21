@@ -2,7 +2,7 @@ import { Navbar } from '../../Sequelize.js';
 
 const navBars = [
   {
-    language: 'EN',
+    language: 'en',
     section1: ['LOGIN', 'EN|FR'],
     section2: {
       email: 'ADN@GMAIL.COM',
