@@ -3,9 +3,11 @@ import SingleEventPageModel from '../../../Models/frontEnd/SingleEventPage.js';
 // import { SingleEventPage } from '../Pages/SingleEventPage.js';
 
 export const getSingleEventPage = (req, res) => {
-    console.log(req.params.language)
+  console.log(req.params.language);
   SingleEventPage.findOne({ where: { language: req.params.language } })
     // .then(singleEventpage => res.json({ ...singleEventpage.fullGet() }))
-    .then(singleEventpage => res.json({ page : singleEventpage }))
+    .then(singleEventpage => {
+      res.json({ ...singleEventpage.toJSON() });
+    })
     .catch(err => res.status(404).json({ ...err }));
 };
