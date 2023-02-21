@@ -28,9 +28,6 @@ const sequelize = new Sequelize('adn-dmservices', 'doadmin', 'AVNS_fDFjpK59lR3wQ
   host: 'adn-dmservices-do-user-7091938-0.b.db.ondigitalocean.com',
   port : 25060,
   dialect: 'mysql',
-  // dialectOptions: {
-  //   timezone: 'Etc/GMT',
-  // },
   logging: false,
 })
 
