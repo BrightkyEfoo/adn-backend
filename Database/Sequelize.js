@@ -19,10 +19,14 @@ import CommentModel from '../Models/Comments.js';
 import {commentFiller} from './Fillers/CommentFiller.js'
 import SingleEventPageModel from '../Models/frontEnd/SingleEventPage.js';
 import { singleEventPageFiller } from './Fillers/frontEnd/SingleEventFiller.js';
+import AboutPageModel from '../Models/frontEnd/AboutPage.js';
+import FocalPointModel from '../Models/FocalPoint.js';
+import { aboutpageFiller } from './Fillers/frontEnd/AboutPageFiller.js';
+import { focalPointFiller } from './Fillers/FocalPointFiller.js';
 
-const sequelize = new Sequelize('digital23_adn', 'root', '123456789', {
-  host: 'mysql-112011-0.cloudclusters.net',
-  port : 10332,
+const sequelize = new Sequelize('adn-dmservices', 'doadmin', 'AVNS_fDFjpK59lR3wQHMG5aZ', {
+  host: 'adn-dmservices-do-user-7091938-0.b.db.ondigitalocean.com',
+  port : 25060,
   dialect: 'mysql',
   // dialectOptions: {
   //   timezone: 'Etc/GMT',
@@ -41,7 +45,8 @@ export const Activity = ActivityModel(sequelize)
 export const Program = ProgramModel(sequelize)
 export const Comment = CommentModel(sequelize)
 export const SingleEventPage = SingleEventPageModel(sequelize)
-
+export const AboutPage = AboutPageModel(sequelize)
+export const FocalPoint = FocalPointModel(sequelize)
 
 Event.addHook('beforeCreate',(event , option)=>{
   let begin = new Date(event.begin)
@@ -66,6 +71,8 @@ export const dbInit = ()=>{
         eventPageFiller()
         commentFiller()
         singleEventPageFiller()
+        aboutpageFiller()
+        focalPointFiller()
         console.log('database connection successfully etablished')
     }).catch(err => console.log('database connection unsuccessfully etablished' , {err}) )
 }

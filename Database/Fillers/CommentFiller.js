@@ -11,7 +11,7 @@ const comments = [
 export const commentFiller = () => {
   for (let i=0; i < 10; i++) {
     Comment.create(comments[0])
-      .then(comment => console.log(comment))
+      .then(comment => console.log(comment.toJSON()))
       .catch(err => console.log(err));
   }
 };
