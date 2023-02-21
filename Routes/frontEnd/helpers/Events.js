@@ -4,12 +4,14 @@ import { Event } from '../../../Database/Sequelize.js';
 export const getAllEvents = (req, res) => {
   console.log('events');
   const {limit } = req.query
+  console.log('limit', limit)
   Event.findAll({limit : parseInt(limit) || 100 , order:[['beginDay','ASC']]}).then(events => {
-    const ev = events;
-    ev.forEach(e => {
-      e.document = JSON.parse(e.document);
-    });
-    res.json({ events: ev });
+    // const ev = events;
+    // ev.forEach(e => {
+    //   e.document = JSON.parse(e.document);
+    // });
+    // res.json({ events: ev });
+    res.json({events})
   });
 };
 
@@ -30,12 +32,13 @@ export const getEvents = (req, res) => {
       }
     }
   }).then(events => {
-    const ev = [...events];
-    ev.forEach(e => {
-      e.document = JSON.parse(e.document);
-    });
+    // const ev = [...events];
+    // ev.forEach(e => {
+    //   e.document = JSON.parse(e.document);
+    // });
     // ev.
-    res.json({ events: ev });
+    res.json({events})
+    // res.json({ events: ev });
   });
 };
 
