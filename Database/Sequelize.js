@@ -24,9 +24,9 @@ import FocalPointModel from '../Models/FocalPoint.js';
 import { aboutpageFiller } from './Fillers/frontEnd/AboutPageFiller.js';
 import { focalPointFiller } from './Fillers/FocalPointFiller.js';
 
-const sequelize = new Sequelize('adn-dmservices', 'doadmin', 'AVNS_fDFjpK59lR3wQHMG5aZ', {
-  host: 'adn-dmservices-do-user-7091938-0.b.db.ondigitalocean.com',
-  port : 25060,
+const sequelize = new Sequelize('adn-dmservices', 'root', '', {
+  host: 'localhost',
+  // port : 25060,
   dialect: 'mysql',
   logging: false,
 })
