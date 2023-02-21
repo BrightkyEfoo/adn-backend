@@ -10,7 +10,7 @@ const navBars = [
       twitter: 'http://twitter.com',
       facebook: 'http://facebook.com',
     },
-    logo: 'http://localhost:9001/public/homePage/FR/logo.png',
+    logo: 'https://adn-backend.ondigitalocean.app/public/homePage/FR/logo.png',
     links: [
       {
         title: 'Home',
