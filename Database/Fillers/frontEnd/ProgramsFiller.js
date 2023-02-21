@@ -1,7 +1,7 @@
 import { Program } from '../../Sequelize.js';
 
 const programs = Array(7).fill({
-  language: 'en',
+  language: 'EN',
   image: 'https://adn-backend-mj63t.ondigitalocean.app/public/homePage/FR/image.png',
   date: new Date(),
   title: 'Pre-incubation program for the African descent community in ottawa',

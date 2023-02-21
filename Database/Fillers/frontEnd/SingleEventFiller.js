@@ -2,7 +2,7 @@ import { SingleEventPage } from "../../Sequelize.js"
 
 const events = [
     {
-        language : 'en',
+        language : 'EN',
         detailsSection : {
             date : 'DATE',
             time : 'TIME',

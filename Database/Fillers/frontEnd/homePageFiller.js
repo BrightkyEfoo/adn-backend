@@ -2,7 +2,7 @@ import { HomePage } from '../../Sequelize.js';
 
 const homePages = [
   {
-    language: 'en',
+    language: 'EN',
     section1: {
       image: 'https://adn-backend-mj63t.ondigitalocean.app/public/images/background.jpg',
       main: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
@@ -104,7 +104,7 @@ const homePages = [
     },
   },
   {
-    language: 'fr',
+    language: 'FR',
     section1: {
       image: 'https://adn-backend-mj63t.ondigitalocean.app/public/homePage/FR/image.png',
       main: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
