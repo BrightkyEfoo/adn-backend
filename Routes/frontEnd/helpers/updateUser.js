@@ -33,82 +33,72 @@ export const updateUser = (req, res) => {
               return res.status(401).json({ mag: 'you are not allowed' });
             }
           }
-          if (userId === parseInt(id) && newPassword) {
-            if (!verifyPassword) {
+          //ici
+
+          //fin ici
+          if (parseInt(id) === userId) {
+            if (newPassword) {
+              if (!verifyPassword) {
+                return res
+                  .status(401)
+                  .json({
+                    msg: 'you should provide your password in the verify password field',
+                  });
+              } else {
+                bcrypt
+                  .compare(verifyPassword, userToUpdate.password)
+                  .then(_ => {
+                    if (!_) {
+                      // userToUpdate.update({loginTryCounter : userToUpdate.loginTryCounter - 1})
+                      return res
+                        .status(401)
+                        .json({
+                          msg: 'wrong password filled on verify password field',
+                        });
+                    } else {
+                      bcrypt.hash(newPassword).then(hash => {
+                        userToUpdate
+                          .update({ ...userSubmission, password: hash })
+                          .then(userUpdated => {
+                            let temp = userUpdated.toJSON();
+                            delete temp.password;
+                            return res.json({ msg: 'success', user: temp });
+                          });
+                      });
+                    }
+                  });
+              }
+            } else {
+              userToUpdate.update({ ...userSubmission }).then(userUpdated => {
+                let temp = userUpdated.toJSON();
+                delete temp.password;
+                return res.json({ msg: 'successfully updated', user: temp });
+              });
+            }
+          } else {
+            if (!req.user.accessLevel <= 2) {
               return res
                 .status(401)
-                .json({ msg: 'you should provide your password first' });
-            }
-
-            bcrypt.compare(verifyPassword, userToUpdate.password).then(_ => {
-              if (!_) {
-                return res.status(401).json({ msg: 'unauthorized 2' });
-              } else {
-                bcrypt.hash(verifyPassword, 10).then(hash => {
-                  userToUpdate
-                    .update({ ...userSubmission, password: hash })
-                    .then(userUpdated => {
-                      res.json({
-                        msg: 'successfully updated',
-                        user: userUpdated,
-                      });
-                    })
-                    .catch(err => {
-                      res
-                        .status(400)
-                        .json({ msg: 'something went wrong 1', err });
-                    });
+                .json({
+                  msg: 'you are not allowed to set password of another user',
                 });
-              }
-            });
-          } else {
-            if (userSubmission.password) {
-              bcrypt.hash(userSubmission.password, 10).then(hash => {
-                userToUpdate
-                  .update({ ...userSubmission, password: hash })
-                  .then(userUpdated => {
-                    res.json({
-                      msg: 'successfully updated',
-                      user: userUpdated,
-                    });
-                  })
-                  .catch(err => {
-                    res
-                      .status(400)
-                      .json({ msg: 'something went wrong 2', err });
-                  });
-              });
             } else {
               if (newPassword) {
-                bcrypt.hash(newPassword, 10).then(hash => {
+                bcrypt.hash(newPassword).then(hash => {
                   userToUpdate
                     .update({ ...userSubmission, password: hash })
                     .then(userUpdated => {
-                      res.json({
-                        msg: 'successfully updated',
-                        user: userUpdated,
-                      });
-                    })
-                    .catch(err => {
-                      res
-                        .status(400)
-                        .json({ msg: 'something went wrong 2', err });
+                      let temp = userUpdated.toJSON();
+                      delete temp.password;
+                      return res.json({ msg: 'success', user: temp });
                     });
                 });
               } else {
-                userToUpdate
-                  .update({ ...userSubmission })
-                  .then(userUpdated => {
-                    res.json({
-                      msg: 'successfully updated',
-                      user: userUpdated,
-                    });
-                  })
-                  .catch(err => {
-                    res
-                      .status(400)
-                      .json({ msg: 'something went wrong 2', err });
-                  });
+                userToUpdate.update({ ...userSubmission }).then(userUpdated => {
+                  let temp = userUpdated.toJSON();
+                  delete temp.password;
+                  return res.json({ msg: 'successfully updated', user: temp });
+                });
               }
             }
           }
