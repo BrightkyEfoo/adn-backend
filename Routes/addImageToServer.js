@@ -1,4 +1,5 @@
 import multer from 'multer';
+import auth from '../auth/auth.js';
 
 export default app => {
   const storage = multer.diskStorage({
@@ -13,7 +14,7 @@ export default app => {
   });
   const upload = multer({ storage: storage });
 
-  app.post('/addImageToServer', upload.single('addImage'), (req, res) => {
+  app.post('/addImageToServer', auth , upload.single('addImage'), (req, res) => {
     const file = req.file || req.addImage;
     if (file) {
       res.json({
