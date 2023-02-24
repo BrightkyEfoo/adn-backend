@@ -56,7 +56,7 @@ export const updateUser = (req, res) => {
                           msg: 'wrong password filled on verify password field',
                         });
                     } else {
-                      bcrypt.hash(newPassword).then(hash => {
+                      bcrypt.hash(newPassword,10).then(hash => {
                         userToUpdate
                           .update({ ...userSubmission, password: hash })
                           .then(userUpdated => {
@@ -84,7 +84,7 @@ export const updateUser = (req, res) => {
                 });
             } else {
               if (newPassword) {
-                bcrypt.hash(newPassword).then(hash => {
+                bcrypt.hash(newPassword,10).then(hash => {
                   userToUpdate
                     .update({ ...userSubmission, password: hash })
                     .then(userUpdated => {
