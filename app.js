@@ -40,7 +40,7 @@ app.use('/focalpoints',focalPointRouter)
 app.use('/user',UserRouter)
 
 
-// app.use(auth)
+app.use(auth)
 addImageToServer(app)
 
 app.listen(port, ()=>console.log(`our server is running on port ${port}`));

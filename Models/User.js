@@ -67,7 +67,7 @@ const UserModel = sequelize => {
       },
       profilePic:{
         type:DataTypes.STRING,
-        defaultValue : 'https://adn-backend-mj63t.ondigitalocean.app//public/images/profile.jpg'
+        defaultValue : 'https://adn-backend-mj63t.ondigitalocean.app/public/images/profile.jpg'
       }
     },
     {

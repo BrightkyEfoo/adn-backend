@@ -1,5 +1,5 @@
 import multer from 'multer';
-import auth from '../auth/auth.js';
+// import auth from '../auth/auth.js';
 
 export default app => {
   const storage = multer.diskStorage({
@@ -14,11 +14,11 @@ export default app => {
   });
   const upload = multer({ storage: storage });
 
-  app.post('/addImageToServer', auth , upload.single('addImage'), (req, res) => {
+  app.post('/addImageToServer', upload.single('addImage'), (req, res) => {
     const file = req.file || req.addImage;
     if (file) {
       res.json({
-        url: 'https://adn-backend-mj63t.ondigitalocean.app//public/images/' + req.file.filename,
+        url: 'https://adn-backend-mj63t.ondigitalocean.app/public/images/' + req.file.filename,
       });
     } else {
       res.status(404).json({ msg: 'upload failed' });

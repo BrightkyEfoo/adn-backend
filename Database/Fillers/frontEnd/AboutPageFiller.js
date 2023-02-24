@@ -5,10 +5,10 @@ const aboutPage = [
         language : 'EN',
         head : {
             title : 'About Us',
-            image : 'https://adn-backend-mj63t.ondigitalocean.app//public/images/background.jpg',
+            image : 'https://adn-backend-mj63t.ondigitalocean.app/public/images/background.jpg',
         },
         section1:{
-            image : 'https://adn-backend-mj63t.ondigitalocean.app//public/images/background2.png',
+            image : 'https://adn-backend-mj63t.ondigitalocean.app/public/images/background2.png',
             title : 'This is who we are',
             main : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non augue magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque semper mi nec dolor facilisis, et cursus nulla ullamcorper. Suspendisse lobortis fermentum vestibulum. Quisque tincidunt orci sit amet finibus feugiat. Nulla facilisi.',
             button : {
@@ -17,7 +17,7 @@ const aboutPage = [
             }
         },
         section2:{
-            image : 'https://adn-backend-mj63t.ondigitalocean.app//public/images/pdg.jpg',
+            image : 'https://adn-backend-mj63t.ondigitalocean.app/public/images/pdg.jpg',
             main : {
                 title : 'Genesis',
                 text : [
