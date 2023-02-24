@@ -37,7 +37,7 @@ const EventModel = sequelize => {
       },
       image: {
         type: DataTypes.STRING,
-        defaultValue: 'https://adn-backend-mj63t.ondigitalocean.app/public/homePage/FR/image.png',
+        defaultValue: 'https://adn-backend-mj63t.ondigitalocean.app//public/homePage/FR/image.png',
       },
       main: {
         type: DataTypes.STRING,

@@ -1,4 +1,8 @@
 import { DataTypes, Model } from 'sequelize';
+import bcrypt from 'bcrypt'
+// import { maxLoginTries } from '../app.js';
+const secret_key = 'DMServices!@#123'
+export const maxLoginTries = 5
 
 const UserModel = sequelize => {
   class User extends Model {
@@ -37,6 +41,10 @@ const UserModel = sequelize => {
           },
         },
       },
+      loginTryCounter : {
+        type : DataTypes.INTEGER,
+        defaultValue : maxLoginTries,
+      },
       password: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -48,6 +56,7 @@ const UserModel = sequelize => {
         defaultValue: 0,
         validate: {
           isCorrect: value => {
+            console.log('value', value)
             if (![0,1,2,3].includes(value)) {
               throw Error(
                 'the value of an accessLevel should be either 0 or 1'
@@ -56,8 +65,22 @@ const UserModel = sequelize => {
           },
         },
       },
+      profilePic:{
+        type:DataTypes.STRING,
+        defaultValue : 'https://adn-backend-mj63t.ondigitalocean.app//public/images/profile.jpg'
+      }
     },
     {
+      hooks:{
+        afterCreate : (user)=>{
+          bcrypt.hash(user.password , 10 , (err , hash)=>{
+            user.password = hash
+            user.save().then(usertemp => {
+              console.log('user', usertemp.toJSON())
+            })
+          })
+        }
+      },
       sequelize,
       timestamps: true,
       createdAt: true,

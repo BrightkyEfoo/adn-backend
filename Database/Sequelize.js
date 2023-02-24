@@ -24,12 +24,18 @@ import FocalPointModel from '../Models/FocalPoint.js';
 import { aboutpageFiller } from './Fillers/frontEnd/AboutPageFiller.js';
 import { focalPointFiller } from './Fillers/FocalPointFiller.js';
 
-const sequelize = new Sequelize('adn', 'root', '12345679', {
-  host: 'mariadb-112010-0.cloudclusters.net',
-  port : 10321,
-  dialect: 'mariadb',
+const sequelize = new Sequelize('adn', 'adn', 'AVNS_6BghdSeOz8HU3fgwTqB', {
+  host: 'adn-do-user-7091938-0.b.db.ondigitalocean.com',
+  port : 25060,
+  dialect: 'mysql',
   logging: false,
 })
+
+// const sequelize = new Sequelize('adn', 'root', '', {
+//   host: 'localhost',
+//   dialect: 'mariadb',
+//   logging: false,
+// })
 
 
 export const User = UserModel(sequelize)
