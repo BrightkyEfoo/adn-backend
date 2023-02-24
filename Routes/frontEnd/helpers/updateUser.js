@@ -3,8 +3,10 @@ import bcrypt from 'bcrypt';
 
 export const updateUser = (req, res) => {
   const { id } = req.params;
+  console.log('id', id)
   console.log('req.body', req.body);
   const { userId, userSubmission, newPassword, verifyPassword } = req.body; // ce user id la est celui de l'utilisateur qui initie l'operation
+  // console.log('req', req)
   User.findByPk(parseInt(id))
     .then(userToUpdate => {
       if (!userToUpdate) {
@@ -69,14 +71,18 @@ export const updateUser = (req, res) => {
                   });
               }
             } else {
-              userToUpdate.update({ ...userSubmission }).then(userUpdated => {
+              let Temp = {...userSubmission}
+              if(Temp.password){
+                delete Temp.password
+              }
+              userToUpdate.update({ ...Temp }).then(userUpdated => {
                 let temp = userUpdated.toJSON();
                 delete temp.password;
                 return res.json({ msg: 'successfully updated', user: temp });
               });
             }
           } else {
-            if (!req.user.accessLevel <= 2) {
+            if (req.user.accessLevel <= 2) {
               return res
                 .status(401)
                 .json({
