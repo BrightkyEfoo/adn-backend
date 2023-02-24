@@ -14,7 +14,7 @@ export const updateUser = (req, res) => {
         if (admin.accessLevel !== req.user.accessLevel) {
           console.log('admin', admin);
           console.log('req.user', req.user);
-          return res.status(401).json({ msg: 'unauthorized' });
+          return res.status(401).json({ msg: 'unauthorized 1' });
         }
         if (admin.accessLevel > 2 || admin.id === userToUpdate.id) {
           if (admin.accessLevel <= 2) {
@@ -42,7 +42,7 @@ export const updateUser = (req, res) => {
 
             bcrypt.compare(verifyPassword, userToUpdate.password).then(_ => {
               if (!_) {
-                return res.status(401).json({ msg: 'unauthorized' });
+                return res.status(401).json({ msg: 'unauthorized 2' });
               } else {
                 bcrypt.hash(verifyPassword, 10).then(hash => {
                   userToUpdate
@@ -79,7 +79,24 @@ export const updateUser = (req, res) => {
                   });
               });
             } else {
-              userToUpdate
+              if (newPassword) {
+                bcrypt.hash(newPassword, 10).then(hash => {
+                  userToUpdate
+                    .update({ ...userSubmission, password: hash })
+                    .then(userUpdated => {
+                      res.json({
+                        msg: 'successfully updated',
+                        user: userUpdated,
+                      });
+                    })
+                    .catch(err => {
+                      res
+                        .status(400)
+                        .json({ msg: 'something went wrong 2', err });
+                    });
+                });
+              } else {
+                userToUpdate
                   .update({ ...userSubmission })
                   .then(userUpdated => {
                     res.json({
@@ -92,6 +109,7 @@ export const updateUser = (req, res) => {
                       .status(400)
                       .json({ msg: 'something went wrong 2', err });
                   });
+              }
             }
           }
         }
