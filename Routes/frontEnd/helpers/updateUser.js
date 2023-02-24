@@ -93,7 +93,17 @@ export const updateUser = (req, res) => {
                       return res.json({ msg: 'success', user: temp });
                     });
                 });
-              } else {
+              } else if(userSubmission.password){
+                bcrypt.hash(userSubmission.password,10).then(hash => {
+                  userToUpdate
+                    .update({ ...userSubmission, password: hash })
+                    .then(userUpdated => {
+                      let temp = userUpdated.toJSON();
+                      delete temp.password;
+                      return res.json({ msg: 'success', user: temp });
+                    });
+                });
+              }else {
                 userToUpdate.update({ ...userSubmission }).then(userUpdated => {
                   let temp = userUpdated.toJSON();
                   delete temp.password;
