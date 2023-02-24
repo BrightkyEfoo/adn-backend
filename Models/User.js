@@ -74,12 +74,17 @@ const UserModel = sequelize => {
       hooks:{
         afterCreate : (user)=>{
           bcrypt.hash(user.password , 10 , (err , hash)=>{
-            user.password = hash
-            user.save().then(usertemp => {
+            user.update({password : hash}).then(usertemp => {
               console.log('user', usertemp.toJSON())
             })
           })
-        }
+        },
+        // beforeUpdate : (user)=>{
+        //   bcrypt.hash(user.password , 10 , (err , hash)=>{
+        //     user.password = hash
+        //     //user.save().then(use => console.log('user', use))
+        //   })
+        // }
       },
       sequelize,
       timestamps: true,

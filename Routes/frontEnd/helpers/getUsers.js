@@ -20,7 +20,7 @@ export const getAllUsers = (req, res) => {
 
 export const getUser = (req, res) => {
   const { id } = req.params;
-  const { userId } = req.body;
+  const { userId } = req.query;
   if (!userId) {
     return res.status(400).json({ msg: 'you should provide your userId' });
   }
