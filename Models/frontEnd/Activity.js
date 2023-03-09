@@ -4,6 +4,12 @@ const ActivityModel = sequelize => {
   class Activity extends Model {}
   Activity.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey : true
+      },
       language: {
         type: DataTypes.STRING,
         allowNull : false,

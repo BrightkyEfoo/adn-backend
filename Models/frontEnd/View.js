@@ -1,27 +1,25 @@
 import { DataTypes, Model } from 'sequelize';
 
-const FooterModel = sequelize => {
-  class Footer extends Model {}
-  Footer.init(
+const ViewModel = sequelize => {
+  class View extends Model {}
+  View.init(
     {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey : true
+        primaryKey: true,
       },
       language: {
         type: DataTypes.STRING,
       },
-      bottom: {
-        type: DataTypes.JSON,
+      name : {
+        type : DataTypes.STRING,
+        allowNull : false
       },
-      left: {
-        type: DataTypes.JSON,
-      },
-      right: {
-        type: DataTypes.JSON,
-      },
+      content : {
+        type : DataTypes.JSON
+      }
     },
     {
       sequelize,
@@ -30,7 +28,7 @@ const FooterModel = sequelize => {
       updatedAt: true,
     }
   );
-  return Footer;
+  return View;
 };
 
-export default FooterModel;
+export default ViewModel;

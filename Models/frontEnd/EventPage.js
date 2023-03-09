@@ -14,6 +14,12 @@ const EventPageModel = sequelize => {
   }
   EventPage.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey : true
+      },
       language: {
         type: DataTypes.STRING,
       },

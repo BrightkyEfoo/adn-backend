@@ -23,6 +23,10 @@ import AboutPageModel from '../Models/frontEnd/AboutPage.js';
 import FocalPointModel from '../Models/FocalPoint.js';
 import { aboutpageFiller } from './Fillers/frontEnd/AboutPageFiller.js';
 import { focalPointFiller } from './Fillers/FocalPointFiller.js';
+import ViewModel from '../Models/frontEnd/View.js';
+import { AboutPageDoctorFiller } from './Fillers/frontEnd/DoctorAboutPageFiller.js';
+import DoctorModel from '../Models/Doctors.js';
+import { DoctorsFiller } from './Fillers/DoctorsFiller.js';
 
 const sequelize = new Sequelize('adn', 'adn', 'AVNS_6BghdSeOz8HU3fgwTqB', {
   host: 'adn-do-user-7091938-0.b.db.ondigitalocean.com',
@@ -50,6 +54,8 @@ export const Comment = CommentModel(sequelize)
 export const SingleEventPage = SingleEventPageModel(sequelize)
 export const AboutPage = AboutPageModel(sequelize)
 export const FocalPoint = FocalPointModel(sequelize)
+export const View = ViewModel(sequelize)
+export const Doctor = DoctorModel(sequelize)
 
 Event.addHook('beforeCreate',(event , option)=>{
   let begin = new Date(event.begin)
@@ -76,6 +82,9 @@ export const dbInit = ()=>{
         singleEventPageFiller()
         aboutpageFiller()
         focalPointFiller()
+        // aboutpageFiller()
+        AboutPageDoctorFiller()
+        DoctorsFiller()
         console.log('database connection successfully etablished')
     }).catch(err => console.log('database connection unsuccessfully etablished' , {err}) )
 }

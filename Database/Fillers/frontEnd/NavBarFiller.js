@@ -18,7 +18,20 @@ const navBars = [
       },
       {
         title: 'About',
-        url: '/about',
+        subLinks: [
+          {
+            title: 'About us',
+            url: '/about-us',
+          },
+          {
+            title: 'Board of directors',
+            url: '/directors',
+          },
+          {
+            title: 'Vision Mission Value',
+            url: '/vmv',
+          },
+        ]
       },
       {
         title: 'Events',

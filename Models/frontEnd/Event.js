@@ -10,6 +10,12 @@ const EventModel = sequelize => {
   }
   Event.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey : true
+      },
       language: {
         type: DataTypes.STRING,
         allowNull: false,

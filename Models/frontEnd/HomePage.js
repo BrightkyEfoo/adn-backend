@@ -4,6 +4,12 @@ const HomePageModel = sequelize => {
   class HomePage extends Model {}
   HomePage.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey : true
+      },
       language: {
         type: DataTypes.STRING,
         allowNull : false,

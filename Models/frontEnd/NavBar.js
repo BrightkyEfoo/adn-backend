@@ -4,6 +4,12 @@ const NavBarModel = sequelize => {
   class Navbar extends Model {}
   Navbar.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey : true
+      },
       language : {
         type : DataTypes.STRING
       },
