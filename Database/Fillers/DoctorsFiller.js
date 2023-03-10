@@ -10,10 +10,10 @@ const doctors = new Array(6).fill({
 });
 
 export const DoctorsFiller = () => {
-  doctors.forEach(el => {
+  doctors.forEach((el,i )=> {
     Doctor.create(el)
       .then(doctor => {
-        console.log('doctor', doctor.toJSON());
+        console.log('doctor',i);
       })
       .catch(err => {
         console.log('err', err);
