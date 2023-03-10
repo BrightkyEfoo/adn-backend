@@ -27,6 +27,7 @@ import ViewModel from '../Models/frontEnd/View.js';
 import { AboutPageDoctorFiller } from './Fillers/frontEnd/DoctorAboutPageFiller.js';
 import DoctorModel from '../Models/Doctors.js';
 import { DoctorsFiller } from './Fillers/DoctorsFiller.js';
+import { VmvPageFiller } from './Fillers/frontEnd/VmvPage.js';
 
 const sequelize = new Sequelize('adn', 'adn', 'AVNS_6BghdSeOz8HU3fgwTqB', {
   host: 'adn-do-user-7091938-0.b.db.ondigitalocean.com',
@@ -85,6 +86,7 @@ export const dbInit = ()=>{
         // aboutpageFiller()
         AboutPageDoctorFiller()
         DoctorsFiller()
+        VmvPageFiller()
         console.log('database connection successfully etablished')
     }).catch(err => console.log('database connection unsuccessfully etablished' , {err}) )
 }
