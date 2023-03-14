@@ -29,7 +29,7 @@ import DoctorModel from '../Models/Doctors.js';
 import { DoctorsFiller } from './Fillers/DoctorsFiller.js';
 import { VmvPageFiller } from './Fillers/frontEnd/VmvPage.js';
 
-const sequelize = new Sequelize('adn', 'adn', 'AVNS_6BghdSeOz8HU3fgwTqB', {
+const sequelize = new Sequelize('db1', 'user1', 'AVNS_kQxk7l42OZviO7zD7u6', {
   host: 'adn-do-user-7091938-0.b.db.ondigitalocean.com',
   port : 25060,
   dialect: 'mysql',
